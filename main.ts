@@ -1,4 +1,4 @@
-#! /usr/bin/env deno run --allow-net --unstable
+#! /usr/bin/env deno run --allow-net 
 
 import { app } from "./app.ts";
 
