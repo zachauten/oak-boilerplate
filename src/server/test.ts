@@ -7,14 +7,14 @@ Deno.test("/self", async function () {
       db: new DB(),
     },
   };
-  let application = app(initial_state);
+  const application = app(initial_state);
   const controller = new AbortController();
   const { signal } = controller;
   const listen_promise = application.listen({ port: 8080, signal });
 
-  let res = await fetch("http://localhost:8080/self");
+  const res = await fetch("http://localhost:8080/self");
   assert(res.status === 200);
-  let body = await res.text();
+  const body = await res.text();
   assert(body === "Running!\n");
 
   controller.abort();

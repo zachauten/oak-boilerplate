@@ -5,8 +5,8 @@ export interface InitialState {
 }
 
 export interface Person {
-  id?: number,
-  name: string,
-  email: string,
-  birth_year: number,
+  id?: number;
+  name: string;
+  email: string;
+  birth_year: number;
 }

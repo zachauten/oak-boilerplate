@@ -5,15 +5,25 @@ export function add_person(conn: DB, person: Person) {
   conn.query("INSERT INTO people (name, email, birth_year) VALUES (?, ?, ?)", [
     person.name,
     person.email,
-    person.birth_year
+    person.birth_year,
   ]);
 }
 
 export function get_people(conn: DB, name: string): Person[] {
-  const res = conn.query("SELECT id, email, birth_year FROM people WHERE name = (?)", [
-    name,
-  ]);
-  return [...res].map(person => { return { id: person[0], name: name, email: person[1], birth_year: person[2] }});
+  const res = conn.query(
+    "SELECT id, email, birth_year FROM people WHERE name = (?)",
+    [
+      name,
+    ],
+  );
+  return [...res].map((person) => {
+    return {
+      id: person[0],
+      name: name,
+      email: person[1],
+      birth_year: person[2],
+    } as Person;
+  });
 }
 
 export function update_person() {
