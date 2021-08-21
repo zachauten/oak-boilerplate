@@ -1,4 +1,4 @@
-import { RouterContext, Status } from "./deps.ts";
+import { RouterContext, Status } from "../../deps.ts";
 import * as queries from "./queries.ts";
 
 export async function index(ctx: RouterContext) {

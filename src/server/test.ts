@@ -1,5 +1,5 @@
 import { app } from "./app.ts";
-import { assert, DB } from "./deps.ts";
+import { assert, DB } from "../../deps.ts";
 
 Deno.test("/self", async function () {
   const initial_state = {

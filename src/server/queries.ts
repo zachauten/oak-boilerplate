@@ -1,4 +1,4 @@
-import { DB } from "./deps.ts";
+import { DB } from "../../deps.ts";
 import { Person } from "./models.ts";
 
 export function add_person(conn: DB, person: Person) {

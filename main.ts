@@ -1,8 +1,8 @@
 #! /usr/bin/env deno run --allow-net --allow-read --allow-write --unstable
 
-import { app } from "./app.ts";
+import { app } from "./src/server/app.ts";
 import { DB } from "./deps.ts";
-import { setup } from "./queries.ts";
+import { setup } from "./src/server/queries.ts";
 
 async function main() {
   const port = 8080;

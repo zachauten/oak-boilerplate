@@ -1,4 +1,4 @@
-import { Application, ApplicationOptions, Router } from "./deps.ts";
+import { Application, ApplicationOptions, Router } from "../../deps.ts";
 import { InitialState } from "./models.ts";
 import * as middleware from "./middleware.ts";
 import * as routes from "./routes.ts";

@@ -1,4 +1,4 @@
-import type { Context } from "./deps.ts";
+import type { Context } from "../../deps.ts";
 
 export async function logger(ctx: Context, next: () => Promise<void>) {
   await next();
