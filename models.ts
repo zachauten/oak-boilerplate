@@ -1,9 +1,12 @@
+import { DB } from "./deps.ts";
+
 export interface InitialState {
-  foo: string;
+  db: DB;
 }
 
-export const initial_state = {
-  state: {
-    foo: "bar",
-  },
-};
+export interface Person {
+  id?: number,
+  name: string,
+  email: string,
+  birth_year: number,
+}

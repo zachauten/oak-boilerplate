@@ -1,8 +1,13 @@
 import { app } from "./app.ts";
-import { assert } from "./deps.ts";
+import { assert, DB } from "./deps.ts";
 
 Deno.test("/self", async function () {
-  let application = app();
+  const initial_state = {
+    state: {
+      db: new DB(),
+    },
+  };
+  let application = app(initial_state);
   const controller = new AbortController();
   const { signal } = controller;
   const listen_promise = application.listen({ port: 8080, signal });

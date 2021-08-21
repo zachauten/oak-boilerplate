@@ -3,4 +3,7 @@
   "deno.import_intellisense_origins": {
     "https://deno.land": true
   },
+  "deno.suggest.imports.hosts": {
+    "https://deno.land": false
+  }
 }
