@@ -3,7 +3,8 @@
 import { app } from "./src/server/app.ts";
 import { DB } from "./deps.ts";
 import { setup } from "./src/server/queries.ts";
-import { port } from "./utils/port.ts";
+
+export const port = parseInt(Deno.env.get("PORT")!) || 8080;
 
 async function main() {
   const db = "oak.db";

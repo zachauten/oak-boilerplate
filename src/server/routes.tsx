@@ -2,9 +2,14 @@ import { Context, RouteParams, RouterContext, Status } from "../../deps.ts";
 import * as queries from "./queries.ts";
 import { InitialState } from "./models.ts";
 
+export enum Routes {
+  INDEX = "/",
+  HEALTH = "/api/health",
+  PEOPLE_NAME = "/api/people/:name",
+}
 type person_ctx = RouterContext<
-  "/people/:name",
-  RouteParams<"/people/:name">,
+  Routes.PEOPLE_NAME,
+  RouteParams<Routes.PEOPLE_NAME>,
   InitialState
 >;
 

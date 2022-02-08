@@ -1,5 +1,5 @@
 #! /usr/bin/env deno run --allow-net --allow-env
-import { port } from "./utils/port.ts"
+import { port } from "./main.ts"
 
 try {
   await fetch(`http://host.docker.internal:${port}/health`)
