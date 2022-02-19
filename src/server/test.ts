@@ -1,11 +1,9 @@
 import { app } from "./app.ts";
-import { assert, DB } from "../../deps.ts";
+import { assert } from "../../deps.ts";
 
 Deno.test("/self", async function () {
   const initial_state = {
-    state: {
-      db: new DB(),
-    },
+    state: {},
   };
   const application = app(initial_state);
   const controller = new AbortController();
