@@ -1,7 +1,7 @@
 import { app } from "./app.ts";
-import { assert } from "../../deps.ts";
+import { assertEquals } from "../../deps.ts";
 
-Deno.test("/self", async function () {
+Deno.test("/api", async t => {
   const initial_state = {
     state: {},
   };
@@ -10,10 +10,10 @@ Deno.test("/self", async function () {
   const { signal } = controller;
   const listen_promise = application.listen({ port: 8080, signal });
 
-  const res = await fetch("http://localhost:8080/self");
-  assert(res.status === 200);
+  const res = await fetch("http://localhost:8080/api/health");
+  assertEquals(res.status, 200);
   const body = await res.text();
-  assert(body === "Running!\n");
+  assertEquals(body, "");
 
   controller.abort();
   await listen_promise;

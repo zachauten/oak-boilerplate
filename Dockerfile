@@ -5,6 +5,7 @@ COPY deps.ts deps.ts
 RUN deno cache deps.ts
 RUN deno info
 COPY . .
+CMD deno test
 CMD deno run --allow-net --allow-read --allow-write --allow-env main.ts
 EXPOSE 8080
 HEALTHCHECK CMD deno run --allow-net --allow-env healthcheck.ts
