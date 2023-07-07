@@ -13,7 +13,7 @@ export async function timing(ctx: Context, next: () => Promise<unknown>) {
   ctx.response.headers.set("X-Response-Time", `${ms}ms`);
 }
 
-export async function index(ctx: Context, next: () => Promise<unknown>) {
+export async function fs_route(ctx: Context, next: () => Promise<unknown>) {
   try {
     await ctx.send({
       root: `${Deno.cwd()}/src/client`,

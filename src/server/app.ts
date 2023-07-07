@@ -1,26 +1,19 @@
-import {
-  Application,
-  ApplicationOptions,
-  Context,
-  Router,
-  Status,
-} from "../../deps.ts";
-import { InitialState } from "./models.ts";
+import { Application, Router, Status } from "../../deps.ts";
 import * as middleware from "./middleware.ts";
 import * as routes from "./routes.tsx";
 
-export function app(state: ApplicationOptions<InitialState>) {
+export function app() {
   const router = new Router()
-    .get(routes.Routes.HEALTH, (ctx: Context) => {
+    .get(routes.Routes.HEALTH, ctx => {
       ctx.response.status = Status.OK;
-    });
-  const app = new Application<InitialState>(state)
+    });    
+  const app = new Application()
     .use(router.allowedMethods())
     .use(middleware.logger)
     .use(middleware.timing)
-    .use(middleware.index)
+    .use(middleware.fs_route)
     .use(router.routes());
-  app.addEventListener("error", (event) => {
+  app.addEventListener("error", (event: ErrorEvent) => {
     console.error(event.error);
   });
   return app;
